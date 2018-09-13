@@ -9,10 +9,10 @@ class Car extends Vehicle {
     protected $trailer;
 
     public function __construct($brand, $color, $name, $doors, $trailer) {
-        parent::__construct($brand, $color, $name);
+        parent::__construct($brand, $color, $name); // sætte automatisk værdier ind jævnfør parrent klassen
         $this->doors = $doors;
         $this->trailer = $trailer;
-        $this->setType('car');
+        $this->setType('car'); // test parrent function smart
     }
 
     public function getTrailer() {
@@ -30,3 +30,19 @@ class Car extends Vehicle {
                 , $this->getDoors());
     }
 }
+
+// public function __toString() {
+//   $hasTrailer = "has no trailer";
+//   if ($this->getTrailer()) {
+//     $hasTrailer = "has a trailer";
+//   }
+//
+//   public function __toString() {
+//       return sprintf("%s, %s, %s\n"
+//               , parent::__toString()
+//               , $this->getDoors()   // Kan ikke printe FALSE.
+//               , $hasTrailer);
+//   }
+// }
+// }
+//

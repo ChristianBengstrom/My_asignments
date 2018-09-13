@@ -22,7 +22,7 @@
     $v3 = new Bicycle('Moser', 'Blue', 'Francesco');
     printf("<p>%s</p>\n", $v3);
 
-    $v4 = new Car('Tesla', 'Black', 'Batman', 4, false);
+    $v4 = new Car('Tesla', 'Black', 'Batman', 4, FALSE);
     printf("<p>%s</p>\n", $v4);
 ?>
     </body>
