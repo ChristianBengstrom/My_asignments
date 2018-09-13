@@ -1,5 +1,5 @@
 <?php
-//
+// 
 //
 // class Triangle {
 //     public $x1;      // int
@@ -17,14 +17,14 @@
 //      * initial state from params
 //      */
 //     public function __construct($x1,$y1,$x2,$y2,$x3,$y3) {
-//       $this->$x1 = $x1;
-//       $this->$y1 = $y1;
+//       $this->x1 = $x1;
+//       $this->y1 = $y1;
 //
-//       $this->$x2 = $x2;
-//       $this->$y2 = $y2;
+//       $this->x2 = $x2;
+//       $this->y2 = $y2;
 //
-//       $this->$x3 = $x3;
-//       $this->$y3 = $y3;
+//       $this->x3 = $x3;
+//       $this->y3 = $y3;
 //     }
 //
 //     public function calcSidesLength() {
@@ -32,9 +32,9 @@
 //           echo $this->x1; // hvorfor kan jeg ikke bruge objektets egenskaber her?
 //
 //           // c2 = (xA − xB)2 + (yA − yB)2
-//           $a = sqrt(pow(($this->$x1 - $this->$x2),2) + pow(($this->$y1 - $this->$y2),2));
+//           $a = sqrt(pow(($this->x1 - $this->x2),2) + pow(($this->y1 - $this->y2),2));
 //
-//           return $this->$a;
+//           return $this->a;
 //         }
 //
 //         public function geta() {
@@ -43,10 +43,10 @@
 // }
 //
 // $tri = new Triangle($x1,$y1,$x2,$y2,$x3,$y3);
-// print_r($tri); // test/debug objekt
+// // print_r($tri); // test/debug objekt
 // // echo "<br>";
 // //
-// var_dump($tri->calcSidesLength());
+// print $tri->calcSidesLength();
 
 
 // Length of sides a b and c.

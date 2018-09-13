@@ -10,7 +10,7 @@ class LiveLecture extends Product {
     protected $duration;
     protected $topic;
 
-    public function __construct($title, $lecturer, $duration, $topic) {
+    public function __construct($title, $lecturer, $duration, $topic) { // insætter automatisk parent::__construct(); hvor værdierne ikke er defineret. disse defineres efterfølgene.
         $this->title = $title;
         $this->lecturer = $lecturer;
         $this->duration = $duration;
