@@ -16,7 +16,11 @@ class Car extends Vehicle {
     }
 
     public function getTrailer() {
-        return $this->trailer;
+        $trailer = FALSE;
+        if ($this->trailer) {
+          $trailer = TRUE;
+        }
+        return $trailer;
     }
 
     public function getDoors() {
@@ -24,25 +28,14 @@ class Car extends Vehicle {
     }
 
     public function __toString() {
-        return sprintf("%s, %s, %s\n"
-                , parent::__toString()
-                , $this->getTrailer()   // Kan ikke printe FALSE.
-                , $this->getDoors());
-    }
-}
+      $tjeckTrailer = "has no trailer";
+      if ($this->getTrailer()) {
+        $tjeckTrailer = "has a trailer";
+      }
 
-// public function __toString() {
-//   $hasTrailer = "has no trailer";
-//   if ($this->getTrailer()) {
-//     $hasTrailer = "has a trailer";
-//   }
-//
-//   public function __toString() {
-//       return sprintf("%s, %s, %s\n"
-//               , parent::__toString()
-//               , $this->getDoors()   // Kan ikke printe FALSE.
-//               , $hasTrailer);
-//   }
-// }
-// }
-//
+          return sprintf("%s, %s, %s\n"
+                  , parent::__toString()
+                  , $this->getDoors()   // Kan ikke printe FALSE.
+                  , $tjeckTrailer);
+      }
+    }
