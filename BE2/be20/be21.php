@@ -1,9 +1,13 @@
 <?php
+    // display errors
     ini_set("display_errors", "On");
     ERROR_REPORTING(E_ALL);
 
+    // INC
     require_once './inc/dbparams.inc.php';
     require_once './inc/dbconnect.inc.php';
+
+    // Metadata
     $title = 'BE2.0';
 ?>
 <!DOCTYPE html>
