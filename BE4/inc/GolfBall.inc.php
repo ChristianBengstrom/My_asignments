@@ -4,10 +4,13 @@
  * @author nml
  * example from textbook, Doyle, 2010
  */
+
+ // Implements a interface:
+
 class GolfBall implements Sellable {
     private $_color;
-    private $noinstock; // number in stockUp
-    private $indents; // prikker i golfbolden (egenskab)
+    private $noinstock;
+    private $indents; // prikker i en golfbolden (egenskab)
 
 
     public function getColor() {

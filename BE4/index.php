@@ -5,6 +5,9 @@
  * @author nml
  * example from textbook, Doyle, 2010
  */
+
+    $title = "Form for Sellables";
+
     require_once './inc/dbparams.inc.php';
     require_once './inc/dbconnect.inc.php';
     require_once './inc/Sellable.inc.php';
@@ -17,10 +20,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Testing Interface, OO PHP</title>
+        <title><?php echo $title; ?></title>
     </head>
     <body>
+
 <?php
+    printf("<header><h1>%s</h1></header>\n", $title);
 
 
     $tv = new Television();
@@ -31,6 +36,7 @@
 
     $golfball = new GolfBall();
     $golfball->setColor('white');
+    // $golfball->setIndents('450');
 
     $manager = new StoreManager();
     $manager->addProduct($tv);
@@ -91,6 +97,8 @@
                 }
             }
 
+
+
   try {
       print "<h2>Golfballs</h2>";
       $stmt = $dbh->prepare("SELECT * FROM golfballs");
@@ -109,30 +117,18 @@
   echo "</table>";
 
 
-// Order form handler
-  if (isset($_POST["golfColor"])) {
-    $golfColor = $_POST["golfColor"];
-    $golfQT = $_POST["golfQT"];
-
-    if (isset($_POST["golfQT"])) {
-      $golfQT = 1;
-    }
-    echo "<br><b>".$golfQT."</b>" ." <b>".$golfColor ."</b> golfballs has been added to your cart";
-  }
-  ?>
-  <br>
-   <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-     <select name="golfColor">
-      <option value="">Choose a variant</option>
-      <option value="yellow">yellow</option>
-      <option value="blue">blue</option>
-    </select>
-
-    <input type="number" name="golfQT" value="" placeholder="1">
-    <input type="submit" name="" value="Add to Cart">
-   </form>
-
-  <?php
+// OLD Order form handler
+//   if (isset($_POST["golfColor"])) {
+//     $golfColor = $_POST["golfColor"];
+//     // $golfQT = $_POST["golfQT"];
+//
+//     $golfQT = $_POST["golfQT"];
+//
+//     if (!$golfQT) {
+//       $golfQT = 1;
+//     }
+//     echo "<br><b>".$golfQT."</b>" ." <b>".$golfColor ."</b> golfballs has been added to your cart";
+//   }
 
   echo "<table style='border: solid 1px black;'>";
   echo "<tr><th>Color</th><th>In stock</th></tr>";
@@ -151,12 +147,7 @@
       echo "Error: " . $e->getMessage();
   }
   echo "</table>";
-  ?>
-   <form class="" action="#" method="post">
 
-   </form>
-
-  <?php
   echo "<table style='border: solid 1px black;'>";
   echo "<tr><th>Inch</th><th>In stock</th></tr>";
 
@@ -175,9 +166,7 @@
       echo "Error: " . $e->getMessage();
   }
   ?>
-   <form class="" action="#" method="post">
 
-   </form>
 
   <?php
 
