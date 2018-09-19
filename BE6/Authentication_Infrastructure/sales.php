@@ -1,24 +1,19 @@
 <?php
-    ini_set("display_errors", "On");
-    ERROR_REPORTING(E_ALL);
-    session_start();
-
-    require_once './inc/dbparams.inc.php';
-    require_once './inc/dbconnect.inc.php';
-    require_once './inc/Sellable.inc.php';
-    require_once './inc/Television.inc.php';
-
     // objektet kan kun exixtere en gang
     require_once './inc/DbH.inc.php';
     require_once './inc/DbP.inc.php';
     $db = DbH::getDbH();
+
+    require_once './inc/Sellable.inc.php';
+    require_once './inc/Television.inc.php';
+    require_once './inc/Authentication.inc.php';
 
     $sql = "select inch, stocklevel";
     $sql .= " from tvs";
     $sql .= " order by inch";
 
     try {
-        $rows = $dbh->query($sql);
+        $rows = $db->query($sql);
         foreach ($rows as $row) {
             $tvs[] = new Television($row['inch'], $row['stocklevel']);
         }
@@ -35,10 +30,10 @@
     </head>
     <body>
 <?php
-    include './includes/menu.inc.php';
+    include './inc/menu.inc.php';
 ?>
         <main>
-            <form action="myDbMod.php" method="post">
+            <form action="myDbSubMod.php" method="post">
                 <table>
                     <caption>Sales</caption>
                     <tr>
@@ -62,7 +57,7 @@
             </form>
         </main>
 <?php
-    include './includes/footer.inc.php';
+    // include './includes/footer.inc.php';
 ?>
     </body>
 </html>
