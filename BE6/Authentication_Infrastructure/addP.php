@@ -1,6 +1,7 @@
 <?php
 ini_set("display_errors", "On");
 ERROR_REPORTING(E_ALL);
+session_start();
 
 $title = 'Shop Front Page';
 
@@ -11,7 +12,11 @@ $db = DbH::getDbH();
 
 require_once './inc/Sellable.inc.php';
 require_once './inc/Television.inc.php';
+require_once './inc/Authentication.inc.php';
 
+if (!Authentication::isAuthenticated()) {  // am I logged on?
+        header("Location: ./index.php"); // if not, go away!
+    }
 
 ?>
 <!DOCTYPE html>
@@ -23,12 +28,17 @@ require_once './inc/Television.inc.php';
     </head>
     <body>
 <?php
-    // include './includes/menu.inc.php';
+    include './inc/menu.inc.php';
 ?>
         <main>
 
 
               <?php
+
+              if (Authentication::isAuthenticated()) {
+                  $db = DbH::getDbH();
+              }
+
 
               class TableRows extends RecursiveIteratorIterator {
                   function __construct($it) {
@@ -92,7 +102,7 @@ require_once './inc/Television.inc.php';
     <body>
 
         <main>
-            <form action="./myDbMod.php" method="post">
+            <form action="./myDbAddMod.php" method="post">
                 <table>
                     <caption>Stock up</caption>
                     <tr>
