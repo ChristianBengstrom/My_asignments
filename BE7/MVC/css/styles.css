@@ -1,0 +1,23 @@
+.remote {
+  width: 12rem;
+  padding-top: 5rem;
+  border: 5px solid black;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+button {
+  width: 4rem;
+}
+button[name="on"], button[name="mute"] {
+  display: block;
+  width: 10rem;
+  margin: 0 auto;
+}
+.up button:first-child, .down button:first-child {
+  margin-right: 1.5rem;
+}
+.up, .down {
+  display: block;
+  width: 10rem;
+  margin: 0 auto;
+}
