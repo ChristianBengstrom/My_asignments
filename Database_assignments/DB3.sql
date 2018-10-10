@@ -47,9 +47,23 @@ create table contrylanguage(
 
 create table speaks (
   code char(2) not null,
+  contrycode char(2) not null,
   language varchar(40) not null,
 
-  primary key(code, language),
+  primary key(code, language, contrycode),
   foreign key(code) references contry(code) on delete cascade,
-  foreign key(language) references contrylanguage(language) on delete cascade
+  foreign key(contrycode, language) references contrylanguage(contrycode, language) on delete cascade
 );
+
+insert into contry values('DK', 9999, 'Sønderjylland', 'EU', 9995, 100000, 'Denmark', 'Danmark', 5500000, 1200, 99, 'Demokrati', 'Lars Løkke', 'Copenhagen');
+
+insert into city(district, name, population, contrycode)
+  values('Sydbyen', 'Kolding', 60000, 'DK'),
+        ('Centrum', 'Aarhus', 810000, 'DK'),
+        ('Centrum', 'Broager', 61100, 'DK'),
+        ('Oest', 'Sonderborg', 64000, 'DK'),
+        ('Vest', 'Esbjerg', 67100, 'DK');
+
+  insert into contrylanguage(contrycode, language, isofficial, percantage)
+    values('DK', 'Dansk', true, '85'),
+          ('EN', 'Engelsk', true, '10');
