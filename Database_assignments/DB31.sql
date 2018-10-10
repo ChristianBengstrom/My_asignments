@@ -21,8 +21,21 @@ create table t4 (
   foreign key(district) references t3(dist)
 );
 
-insert into t3 values(1, 5, 'München');
-insert into t3 values(2, 10, 'Schwatchwalder');
-insert into t3 values(3, 2, 'Flensburg');
-insert into t3 values(4, 45, 'Hamburg');
-insert into t3 values(5, 3, 'Berlin');
+insert into t3
+  values(1, 5, 'München'),
+        (2, 10, 'Schwatchwalder'),
+        (3, 2, 'Flensburg'),
+        (4, 45, 'Hamburg'),
+        (5, 3, 'Berlin');
+
+insert into t4 (custname, district, revenue)
+  values('Hans Jensen', 1, 100000),
+        ('Peter Hansen', 1, 900000),
+        ('Jytte Bertelsen', 2, 300000),
+        ('Johanne', 2, 800000),
+        ('Birgitte', 3, 600000),
+        ('Anne', 3, 500000),
+        ('Magrette', 4, 900000),
+        ('Molly', 4, 100000),
+        ('Lis', 5, 500000),
+        ('Anonym', 5, 500000);
