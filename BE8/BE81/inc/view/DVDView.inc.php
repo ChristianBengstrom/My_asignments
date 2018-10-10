@@ -1,12 +1,10 @@
 <?php
 /**
- * Description of DVD
+ * Description of DVD View
  *
  * @author nml
  */
-require_once './inc/Product.inc.php';
-
-class DVD extends Product {
+class DVDView extends ProductView {
     protected $duration;
 
     public function __construct($title, $duration) {
@@ -20,8 +18,7 @@ class DVD extends Product {
     }
 
     public function display() {
-        printf("<p>%s: %s (%s pages)\n"
-                , $this->getProductType()
+        printf("<p>DVD: %s (%s pages)\n"
                 , $this->getTitle()
                 , $this->getDuration());
     }

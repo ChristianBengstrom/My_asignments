@@ -88,4 +88,26 @@ class TelevisionV1 {
         printf("<main class='main'>\n%s\n</main>\n"
           , $this->mainElm());
     }
+
+    // private function mainElm() {
+    //     $media = 'video';
+    //     if ($this->model->getAudioChLo() <= $this->model->getChannel()
+    //         && $this->model->getChannel() <= $this->model->getAudioChHi()) {
+    //         $media = 'audio';
+    //     }
+    //     $s = sprintf("<%s controls>\n", $media);
+    //     foreach ($this->model->getMedia() as $medio) {
+    //         $s .= sprintf("    <source src='./media/%s' type='%s'/>\n"
+    //                   , $medio->getUrl(), $medio->getMimeType());
+    //     }
+    //     $s .= sprintf("</%s>\n", $media);
+    //     return $s;
+    // }
+    //
+    // public function display() {
+    //     printf("<nav class='nav'>\n%s\n%s\n</nav>\n"
+    //       , $this->osd(), $this->remote());
+    //     printf("<main class='main'>\n%s\n</main>\n"
+    //       , $this->mainElm());
+    // }
 }
