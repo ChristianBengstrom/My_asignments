@@ -2,6 +2,7 @@
     /*
      * This is the application
      */
+    session_start();
     ini_set("display_errors", "On");
     ERROR_REPORTING(E_ALL);
 
