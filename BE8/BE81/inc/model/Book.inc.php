@@ -27,7 +27,22 @@
      public static function getBooks(&$arr, $dbh) {
        $books = array();
 
-       $sql = "SELECT * FROM "
+       $sql = "SELECT * FROM book";
+       try {
+         $q = $dbh->prepare($sql);
+         $q->bindValue(':channel', $channel); // use id from books
+         $q->execute();
+         while ($row = $q->fetch()) {
+             $videourl = $row['mediaurl'];
+             $mimetype = $row['mimetype'];
+             $medio = new Media($videourl, $mimetype);
+             array_push($media, $medio);
+         }
+       } catch(PDOException $e) {
+         printf("<p>Query failed: <br/>%s</p>\n",
+           $e->getMessage());
+       } finally {
+         return $media;
          // read books
          // loop them into objects and put them into arr
      }
@@ -38,28 +53,29 @@
     //             , $this->getTitle()
     //             , $this->getPageCount());
     // }
+    }
 }
 
-public static function setMedia($channel, $dbh) {
-        $media = array();
-
-        $sql = "select mediaurl, mimetype";
-        $sql .= " from media";
-        $sql .= " where channel = :channel";
-        try {
-          $q = $dbh->prepare($sql);
-          $q->bindValue(':channel', $channel);
-          $q->execute();
-          while ($row = $q->fetch()) {
-              $videourl = $row['mediaurl'];
-              $mimetype = $row['mimetype'];
-              $medio = new Media($videourl, $mimetype);
-              array_push($media, $medio);
-          }
-        } catch(PDOException $e) {
-          printf("<p>Query failed: <br/>%s</p>\n",
-            $e->getMessage());
-        } finally {
-          return $media;
-        }
-    }
+// public static function setMedia($channel, $dbh) {
+//         $media = array();
+//
+//         $sql = "select mediaurl, mimetype";
+//         $sql .= " from media";
+//         $sql .= " where channel = :channel";
+//         try {
+//           $q = $dbh->prepare($sql);
+//           $q->bindValue(':channel', $channel);
+//           $q->execute();
+//           while ($row = $q->fetch()) {
+//               $videourl = $row['mediaurl'];
+//               $mimetype = $row['mimetype'];
+//               $medio = new Media($videourl, $mimetype);
+//               array_push($media, $medio);
+//           }
+//         } catch(PDOException $e) {
+//           printf("<p>Query failed: <br/>%s</p>\n",
+//             $e->getMessage());
+//         } finally {
+//           return $media;
+//         }
+     // }
