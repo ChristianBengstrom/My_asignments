@@ -125,11 +125,12 @@ class User extends Model {
     }
 
         public static function createObject($a) {
-        $user = new User($a['uid'], null);
-        if (isset($a['pwd1'])) {
-            $user->setPwd($a['pwd1']);
-        }
-        return $user;
+          $act = isset($a['activated'])? $a['activated'] : null;
+          $user = new User($a['uid'], $act);
+          if (isset($a['pwd1'])) {
+              $user->setPwd($a['pwd1']);
+          }
+          return $user;
     }
 
   }

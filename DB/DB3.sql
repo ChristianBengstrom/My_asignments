@@ -57,6 +57,8 @@ create table speaks (
   foreign key(contrycode, language) references contrylanguage(contrycode, language) on delete cascade
 );
 
+-- TEST HERE.
+
 insert into contry values('DK', 9999, 'Sønderjylland', 'EU', 9995, 100000, 'Denmark', 'Danmark', 5500000, 1200, 99, 'Demokrati', 'Lars Løkke', 'Copenhagen');
 
 insert into city(district, name, population, contrycode)
